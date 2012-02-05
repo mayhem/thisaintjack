@@ -8,6 +8,15 @@ from django.contrib.auth import authenticate, logout, login
 from django.core.cache import cache
 from campmanager.models import Burner, CACHE_KEY
 
+def login(request):
+    return render_to_response("campmanager/user/login")
+
+def login_created(request):
+    return render_to_response("campmanager/user/login_created")
+
+def login_error(request):
+    return render_to_response("campmanager/user/login_error")
+
 def newlogin(request):
     form = UserCreationForm()
     if request.method == 'POST':

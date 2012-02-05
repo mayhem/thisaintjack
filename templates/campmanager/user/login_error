@@ -2,10 +2,10 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
+<h2>Login error</h2>
 
 <p>
-Login with Google, Facebook, Twitter or Yahoo!
+Something happened with yuour login. :(
 </p>
 
 {% endblock %}
