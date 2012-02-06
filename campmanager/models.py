@@ -6,10 +6,9 @@ CACHE_KEY = 'taj_stats'
 # Create your models here.
 class Burner(models.Model):
     user = models.ForeignKey(User)
-    print user.name
     realname = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
     mobile = models.CharField(max_length=100)
+    arrival_date = models.DateField()
 
     def __str__(self):
         return "%s" % self.realname
@@ -27,12 +26,22 @@ class SubCamp(models.Model):
     class Admin:
         pass
 
+
 class CampSite(models.Model):
+    TENT_CAMPING = 't'
+    RV_CAMPING = 'r'
+    OFFSITE_CAMPING = 'o'
+    CAMP_SITE_TYPE_CHOICES = (
+        (TENT_CAMPING, "Tent camping"),
+        (RV_CAMPING, "RV Camping"),
+        (OFFSITE_CAMPING, "Off-site lodging")
+    )
     subcamp = models.ForeignKey(SubCamp)
     user = models.ForeignKey(User)
     name = models.CharField(max_length=80)
     desc = models.CharField(max_length=1024)
     numpeople = models.IntegerField()
+    type = models.CharField(max_length=1, choices=CAMP_SITE_TYPE_CHOICES, default=TENT_CAMPING)
 
     def __str__(self):
         return "Campsite: %s %d people" % (self.name, self.numpeople)

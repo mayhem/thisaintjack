@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^campsite/(?P<siteid>\d+)/bigshit/(?P<shitid>\d+)/$', 'campmanager.area.area'),
 
     url(r'^user/newlogin/$', 'campmanager.user.newlogin'),
-    url(r'^user/profile/(?P<username>\w+)/$', 'campmanager.user.profile'),
+    url(r'^user/profile/(?P<username>[\w\s\.-]+)/$', 'campmanager.user.profile'),
     url(r'^user/profile/$', 'campmanager.user.myprofile'),
     url(r'^user/login/$', 'campmanager.user.login'),
     url(r'^user/logout/$', 'campmanager.user.logoff'),

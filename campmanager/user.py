@@ -70,15 +70,16 @@ def myprofile(request):
     if request.method == 'POST':
         burner.realname = request.POST['realname'] 
         burner.mobile = request.POST['phone']
-        msg = "Profile saved. Click on Register Campsite in the menu bar to register a camp site!"
+        burner.arrival_date = request.POST['arrival_date']
+        msg = "Profile saved."
         burner.save()
 
     t = loader.get_template('campmanager/user/myprofile')
     c = RequestContext(request, {
             'msg' : msg,
             'realname' : burner.realname,
-            'email' : burner.email,
             'phone' : burner.mobile,
+            'arrival_date' : burner.arrival_date or "",
     })
     return HttpResponse(t.render(c))
 
@@ -100,8 +101,9 @@ def profile(request, username):
         c = RequestContext(request, {
                 'burner' : username,
                 'realname' : burner.realname,
-                'email' : burner.email,
                 'phone' : burner.mobile,
+                'arrival_date' : burner.arrival_date,
+                'email' : burner.user.email,
         })
     else:
         c = RequestContext(request, { 

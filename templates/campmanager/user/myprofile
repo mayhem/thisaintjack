@@ -22,9 +22,17 @@ Real Name:<br/>
 phone num: (mobile preferred)<br/>
 <input type="text" len="25" name="phone" value="{{phone}}"><br/>
 <br/>
+arrival date:<br/>
+<input id="datepicker" type="text" len="25" name="arrival_date" value="{{arrival_date}}"><br/>
+<br/>
 <input type="submit" value="Save profile">
 </form>
 </p>
 <br/>
 
+<script>
+$(function() {
+    $( "#datepicker" ).datepicker({ dateFormat : "yy-mm-dd"});
+});
+</script>
 {% endblock %}
