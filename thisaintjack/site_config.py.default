@@ -1,0 +1,10 @@
+#
+# Configuration information for this instance of This Aint Jack!
+#
+
+THISAINTJACK_HOME = "/home/dude/thisaintjack"
+THISAINTJACK_URL  = "http://thisaintjack.example.com"
+SECRET_KEY        = "don't share me, bro!"
+ADMINS = (
+    # ('Burner Dude', 'dude@example.com'),
+)

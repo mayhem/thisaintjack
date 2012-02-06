@@ -7,6 +7,5 @@ prerequisites:
 
 virtualenv         - for painless hosting
 django             - version 1.4
-django-openid-auth - https://launchpad.net/django-openid-auth
+django-social-auth - for openauth/openid login
 pysqlite           - for the backend DB
-python-openid      - core openid library

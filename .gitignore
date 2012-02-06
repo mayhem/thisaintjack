@@ -5,3 +5,4 @@ local_settings.py
 virtualenv
 thisaintjack.db
 *.swp
+thisaintjack/site_config.py
