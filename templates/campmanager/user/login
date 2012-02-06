@@ -5,7 +5,7 @@
 <h2>Login</h2>
 
 <p>
-Login with Google, Facebook, Twitter or Yahoo!
+Login with <a href="/login/google-oauth2/">Google</a>, Facebook, Twitter or Yahoo!
 </p>
 
 {% endblock %}

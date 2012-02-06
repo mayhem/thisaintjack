@@ -13,7 +13,7 @@
                 <td><a href="/user/profile/{{burner.user.username}}">{{burner.user.username}}</td>
                 <td>{{burner.realname}}</td>
                 <td>{{burner.mobile}}</td>
-                <td>{{burner.email}}</td>
+                <td>{{burner.user.email}}</td>
              </tr>
         {% endfor %}
     </table>

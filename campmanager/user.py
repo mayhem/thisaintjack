@@ -17,6 +17,10 @@ def login_created(request):
 def login_error(request):
     return render_to_response("campmanager/user/login_error")
 
+def disconnected(request):
+    logout(request)
+    return HttpResponseRedirect("/")
+
 def newlogin(request):
     form = UserCreationForm()
     if request.method == 'POST':
@@ -65,9 +69,8 @@ def myprofile(request):
 
     if request.method == 'POST':
         burner.realname = request.POST['realname'] 
-        burner.email = request.POST['email'] 
         burner.mobile = request.POST['phone']
-        msg = "Profile saved. Would you like to <a href=\"/campsite/0\">register a campsite now</a>?"
+        msg = "Profile saved. Click on Register Campsite in the menu bar to register a camp site!"
         burner.save()
 
     t = loader.get_template('campmanager/user/myprofile')

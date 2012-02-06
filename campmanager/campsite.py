@@ -6,7 +6,6 @@ from django.core.cache import cache
 
 def campsite(request, siteid):
 
-
     msg = None
     campsites = CampSite.objects.filter(id=siteid)
     if campsites:
@@ -49,7 +48,7 @@ def campsite(request, siteid):
                 campsite.save()
                 msg = "Site saved"
 
-    subcamps = SubCamp.objects.all()
+    subcamps = SubCamp.objects.all().order_by('name')
     areas = Area.objects.filter(campsite=siteid).order_by('-name')
     t = loader.get_template('campmanager/campsite/site')
     c = RequestContext(request, {

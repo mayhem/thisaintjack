@@ -93,7 +93,6 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
@@ -167,11 +166,17 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-GOOGLE_OAUTH2_CLIENT_ID      = '701369461006.apps.googleusercontent.com'
-GOOGLE_OAUTH2_CLIENT_SECRET  = 'O5so8N5DHM_hcargpRJIOwQO'
+#GOOGLE_OAUTH2_CLIENT_ID      = '701369461006.apps.googleusercontent.com'
+#GOOGLE_OAUTH2_CLIENT_SECRET  = 'O5so8N5DHM_hcargpRJIOwQO'
+GOOGLE_OAUTH2_CLIENT_ID      = '701369461006-lg7o8tceev45ppr4dm202s6l5hsietea.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET  = 'ohmQLgVDgMkKXr9wpAW7lHwz'
 
-LOGIN_URL          = '/login/'
+LOGIN_URL          = '/user/login/'
 LOGIN_REDIRECT_URL = '/'
-LOGIN_ERROR_URL    = '/login-error/'
+LOGIN_ERROR_URL    = '/user/login_error/'
 
-SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/login-created/'
+SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/user/login_created/'
+SOCIAL_AUTH_DEFAULT_USERNAME = 'oauth_user'
+SOCIAL_AUTH_EXPIRATION = 'expires'
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email',]
+SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = '/user/disconnected/'

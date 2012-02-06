@@ -4,6 +4,9 @@
 {% block content %}
 <h2>Login created!</h2>
 
-<p>You've created your login!</p>
+<p>You've created your login! Next time you need to log in, select the provider you just 
+chose and it will instantly log you back in.</p>
+
+<p><a href="/user/profile">Now please fill out a couple of important pieces of information in your profile</a>.</p>
 
 {% endblock %}

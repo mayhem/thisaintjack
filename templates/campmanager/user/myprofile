@@ -18,8 +18,7 @@ Please do enter these so people can get a hold of each other!
 <form method="post" action="/user/profile/">
 Real Name:<br/>
 <input type="text" len="50" name="realname" value="{{realname}}"><br/>
-e-mail address:<br/>
-<input type="text" len="80" name="email" value="{{email}}" value="{{email}}"><br/>
+<br/>
 phone num: (mobile preferred)<br/>
 <input type="text" len="25" name="phone" value="{{phone}}"><br/>
 <br/>

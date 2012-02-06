@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^burners/$', 'campmanager.views.burnerlist'),
     url(r'^bigshit/$', 'campmanager.views.bigshitlist'),
 
-    url(r'^subcamp/(?P<subcamp>\w+)/$', 'campmanager.views.subcamp'),
+    url(r'^subcamp/(?P<subcamp>[\w\s]+)/$', 'campmanager.views.subcamp'),
     url(r'^campsite/(?P<siteid>\d+)/$', 'campmanager.campsite.campsite'),
     url(r'^campsite/(?P<siteid>\d+)/bigshit/(?P<shitid>\d+)/$', 'campmanager.area.area'),
 
@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     url(r'^user/logout/$', 'campmanager.user.logoff'),
     url(r'^user/login_error/', 'campmanager.user.login_error'),
     url(r'^user/login_created/', 'campmanager.user.login_created'),
+    url(r'^user/disconnected/', 'campmanager.user.disconnected'),
 
     url(r'^help/', 'campmanager.user.help'),
 )
