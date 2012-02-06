@@ -5,7 +5,7 @@
 <h3>{{subcamp.name}} sub camp</h2>
 
 <p>
-{{totalpeople}} people in {{totalsites}} camp sites with {{totalshit}} big shit items =
+{{totalpeople}} people in {{totalsites}} camp sites with {{totalstuff}} big stuff items =
 {{totalsqft}} sq. ft. 
 </p>
 
@@ -16,7 +16,7 @@
         </tr>
         {% for site in site_list %}
              <tr class="{% cycle d0,d1 %}">
-                 <td valign="top"><a href="/campsite/{{ site.id }}">{{ site.name }}</a></td>
+                 <td valign="top"><a href="/group/{{ site.id }}">{{ site.name }}</a></td>
                  <td valign="top" align="center">{{ site.numpeople }}</td>
                  <td valign="top"><a href="/user/profile/{{ site.user }}">{{ site.user }}</td>
                  <td>{{site.desc}}</td>

@@ -13,11 +13,11 @@ urlpatterns = patterns('',
 
     url(r'^$', 'campmanager.views.index'),
     url(r'^burners/$', 'campmanager.views.burnerlist'),
-    url(r'^bigshit/$', 'campmanager.views.bigshitlist'),
+    url(r'^bigstuff/$', 'campmanager.views.bigstufflist'),
 
     url(r'^subcamp/(?P<subcamp>[\w\s]+)/$', 'campmanager.views.subcamp'),
-    url(r'^campsite/(?P<siteid>\d+)/$', 'campmanager.campsite.campsite'),
-    url(r'^campsite/(?P<siteid>\d+)/bigshit/(?P<shitid>\d+)/$', 'campmanager.area.area'),
+    url(r'^group/(?P<siteid>\d+)/$', 'campmanager.group.group'),
+    url(r'^group/(?P<siteid>\d+)/bigstuff/(?P<stuffid>\d+)/$', 'campmanager.area.area'),
 
     url(r'^user/newlogin/$', 'campmanager.user.newlogin'),
     url(r'^user/profile/(?P<username>[\w\s\.-]+)/$', 'campmanager.user.profile'),

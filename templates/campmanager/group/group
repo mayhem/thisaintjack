@@ -1,16 +1,16 @@
 {% extends "campmanager/layout/base.html" %}
-{% block title %}Camp Site: {{ campsite.name }}{% endblock %}
+{% block title %}Group: {{ group.name }}{% endblock %}
 
 {% block content %}
 
-<h3>Camp site: {{ campsite.name }}</h3>
+<h3>Group: {{ group.name }}</h3>
 
 {% if not owner %}
 <table>
-<tr><td>Name:</td><td>{{ campsite.name }}</td></tr>
-<tr><td>Number of people:</td><td>{{ campsite.numpeople }}</td></tr>
-<tr><td>Description:</td><td>{{ campsite.desc }}</td></tr>
-<tr><td>Burner:</td><td><a href="/user/profile/{{campsite.user}}">{{ campsite.user }}</a></td></tr>
+<tr><td>Name:</td><td>{{ group.name }}</td></tr>
+<tr><td>Number of people:</td><td>{{ group.numpeople }}</td></tr>
+<tr><td>Description:</td><td>{{ group.desc }}</td></tr>
+<tr><td>Burner:</td><td><a href="/user/profile/{{group.user}}">{{ group.user }}</a></td></tr>
 </table>
 </p>
 {% else %}
@@ -25,7 +25,7 @@
     <br/>
           <select name="subcamp">
              {% for subcamp in subcamps %}
-                 {% ifequal campsite.subcamp.id subcamp.id %}
+                 {% ifequal group.subcamp.id subcamp.id %}
                      <option id="{{ subcamp.id}}" selected="">{{subcamp.name}}</option>
                  {% else %}
                      <option id="{{ subcamp.id}}">{{subcamp.name}}</option>
@@ -35,19 +35,19 @@
     <br/><br/>
     Name:
     <br/>
-    <input type="text" width="80" size="80" name="name" value="{{ campsite.name }}">
+    <input type="text" width="80" size="80" name="name" value="{{ group.name }}">
     <br/><br/>
     Number of people:
     <br/>
-    <input type="text" width="4" size="4" name="numpeople" value="{{ campsite.numpeople }}">
+    <input type="text" width="4" size="4" name="numpeople" value="{{ group.numpeople }}">
     <br/><br/>
     Description:</td>
     <br/>
-    <input type="text" width="1024" size="80" name="desc" value="{{ campsite.desc }}">
+    <input type="text" width="1024" size="80" name="desc" value="{{ group.desc }}">
     <br/><br/>
     Burner:
     <br/>
-    <a href="/user/profile/{{campsite.user}}">{{ campsite.user }}</a>
+    <a href="/user/profile/{{group.user}}">{{ group.user }}</a>
     <br/><br/>
     <input type="submit" value="Save" />
     </div>
@@ -56,8 +56,8 @@
 
 {% endif %}
 
-{% if campsite.id  %}
-<h3>Big shit areas for: {{ campsite.name }}</h3>
+{% if group.id  %}
+<h3>Big stuff areas for: {{ group.name }}</h3>
 
 {% if areas %}
 <table>
@@ -68,7 +68,7 @@
      </tr>
     {% for area in areas %}
          <tr class="{% cycle d0,d1 %}">
-            <td><a href="/campsite/{{ campsite.id }}/bigshit/{{ area.id }}">{{ area.name }}</a></td>
+            <td><a href="/group/{{ group.id }}/bigstuff/{{ area.id }}">{{ area.name }}</a></td>
             <td>{{ area.desc }}</td>
             <td>{{ area.width }} x {{ area.height }} ft.</td>
          </tr>
@@ -80,7 +80,7 @@
 
 {% if owner %}
 <p>
-<a href="/campsite/{{campsite.id}}/bigshit/0">Add more big shit</a>
+<a href="/group/{{group.id}}/bigstuff/0">Add more big stuff</a>
 </p>
 {% endif %}
 

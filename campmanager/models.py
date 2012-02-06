@@ -27,7 +27,7 @@ class SubCamp(models.Model):
         pass
 
 
-class CampSite(models.Model):
+class Group(models.Model):
     TENT_CAMPING = 't'
     RV_CAMPING = 'r'
     OFFSITE_CAMPING = 'o'
@@ -44,13 +44,13 @@ class CampSite(models.Model):
     type = models.CharField(max_length=1, choices=CAMP_SITE_TYPE_CHOICES, default=TENT_CAMPING)
 
     def __str__(self):
-        return "Campsite: %s %d people" % (self.name, self.numpeople)
+        return "Group: %s %d people" % (self.name, self.numpeople)
 
     class Admin:
         pass
 
 class Area(models.Model):
-    campsite = models.ForeignKey(CampSite)
+    group = models.ForeignKey(Group)
     name = models.CharField(max_length=80)
     desc = models.CharField(max_length=1024)
     width = models.IntegerField()

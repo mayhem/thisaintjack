@@ -3,7 +3,7 @@ from django.template import RequestContext, loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.core.cache import cache
-from campmanager.models import Burner, CampSite, Area, SubCamp, CACHE_KEY
+from campmanager.models import Burner, Group, Area, SubCamp, CACHE_KEY
 
 def index(request):
 
@@ -15,7 +15,7 @@ def index(request):
     subcamp_list = []
     for subcamp in subcamps:
         subcamppeople = 0
-        sites = CampSite.objects.filter(subcamp=subcamp)
+        sites = Group.objects.filter(subcamp=subcamp)
         for site in sites:
             totalpeople += site.numpeople
             subcamppeople += site.numpeople
@@ -32,7 +32,7 @@ def index(request):
     totalsqft = locale.format("%d", totalsqft, grouping=True)
 
     subcamps = SubCamp.objects.all().order_by('-name')
-    sites = CampSite.objects.all().order_by('-numpeople')
+    sites = Group.objects.all().order_by('-numpeople')
     t = loader.get_template('campmanager/index')
     c = RequestContext(request, {
         'subcamp_list': subcamp_list,
@@ -54,24 +54,24 @@ def subcamp(request, subcamp):
         subcamp = subcamps[0]
 
     totalpeople = 0
-    sites = CampSite.objects.filter(subcamp=subcamp)
+    sites = Group.objects.filter(subcamp=subcamp)
     totalsites = len(sites)
     for site in sites:
         totalpeople += site.numpeople
 
-    totalshit = Area.objects.count()
+    totalstuff = Area.objects.count()
 
     locale.setlocale(locale.LC_ALL, "")
     totalsqft = locale.format("%d", int(totalpeople) * 500, grouping=True)
 
-    sites = CampSite.objects.filter(subcamp=subcamp).order_by('-numpeople')
+    sites = Group.objects.filter(subcamp=subcamp).order_by('-numpeople')
     t = loader.get_template('campmanager/subcamp')
     c = RequestContext(request, {
         'subcamp' : subcamp,
         'site_list': sites,
         'totalpeople' : totalpeople,
         'totalsites' : totalsites,
-        'totalshit' : totalshit,
+        'totalstuff' : totalstuff,
         'totalsqft' : totalsqft,
     })
     return HttpResponse(t.render(c))
@@ -88,11 +88,11 @@ def burnerlist(request):
     })
     return HttpResponse(t.render(c))
 
-def bigshitlist(request):
+def bigstufflist(request):
 
-    bigshit = Area.objects.all().order_by('-name')
-    t = loader.get_template('campmanager/bigshit')
+    bigstuff = Area.objects.all().order_by('-name')
+    t = loader.get_template('campmanager/bigstuff')
     c = RequestContext(request, {
-        'bigshits': bigshit
+        'bigstuffs': bigstuff
     })
     return HttpResponse(t.render(c))

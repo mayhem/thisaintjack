@@ -1,0 +1,24 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}Big stuff{% endblock %}
+
+{% block content %}
+<h3>Big Stuff</h3>
+{% if bigstuffs %}
+    <table>
+        <tr class="h">
+          <th>Name</th><th>camp site</th><th>Description</th><th>Width (ft)</th><th>Depth (ft)</th>
+        </tr>
+        {% for bigstuff in bigstuffs %}
+             <tr class="{% cycle d0,d1 %}">
+                <td><a href="/group/{{bigstuff.group.id}}/bigstuff/{{bigstuff.id}}">{{bigstuff.name}}</a></td>
+                <td><a href="/group/{{bigstuff.group.id}}">{{bigstuff.group.name}}</td>
+                <td>{{bigstuff.desc}}</td>
+                <td>{{bigstuff.width}}</td>
+                <td>{{bigstuff.height}}</td>
+             </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No big stuff registered.</p>
+{% endif %}
+{% endblock %}

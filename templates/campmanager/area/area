@@ -1,9 +1,9 @@
 {% extends "campmanager/layout/base.html" %}
-{% block title %}Big shit: {{ area.name }}{% endblock %}
+{% block title %}Big stuff: {{ area.name }}{% endblock %}
 
 {% block content %}
 
-<h3>Big shit: {{ area.name }}</h3>
+<h3>Big stuff: {{ area.name }}</h3>
 
 {% if not owner %}
 <div class="abox">
@@ -21,7 +21,7 @@ Description:
 <br/><br/>
 Burner:
 <br/>
-<a href="/user/profile/{{area.user}}">{{ campsite.user }}</a>
+<a href="/user/profile/{{area.user}}">{{ group.user }}</a>
 <br/><br/>
 </div>
 {% else %}
@@ -45,9 +45,9 @@ Burner:
        <br/>
        <input type="text" width="1024" size="80" name="desc" value="{{ area.desc }}">
        <br/><br/>
-       Campsite:
+       Group:
        <br/>
-       <a href="/campsite/{{campsite.id}}">{{ campsite.name }}</a>
+       <a href="/group/{{group.id}}">{{ group.name }}</a>
        <br/><br/>
        <input type="submit" value="Save" />
     </div>

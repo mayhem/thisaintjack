@@ -1,8 +1,8 @@
 {% extends "campmanager/layout/base.html" %}
-{% block title %}Create new camp site{% endblock %}
+{% block title %}Create new group{% endblock %}
 
 {% block content %}
-<h3>Create new campsite</h3>
+<h3>Create new group</h3>
       <form action="." method="post">
         {% if error %}
           <p class="error">Error: {{ error }}</p>
@@ -18,7 +18,7 @@
         <input type="text" name="desc" value="{{ desc }}" size="80">
         <br/>
 
-        <label for="name">Number of people on camp site:</label> 
+        <label for="name">Number of people in group site:</label> 
         <br/>
         <input type="text" name="numpeople" value="{{ numpeople }}" size="4" width="4">
         <br/>
