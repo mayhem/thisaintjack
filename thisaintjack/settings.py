@@ -164,10 +164,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-#GOOGLE_OAUTH2_CLIENT_ID      = '701369461006.apps.googleusercontent.com'
-#GOOGLE_OAUTH2_CLIENT_SECRET  = 'O5so8N5DHM_hcargpRJIOwQO'
-GOOGLE_OAUTH2_CLIENT_ID      = '701369461006-lg7o8tceev45ppr4dm202s6l5hsietea.apps.googleusercontent.com'
-GOOGLE_OAUTH2_CLIENT_SECRET  = 'ohmQLgVDgMkKXr9wpAW7lHwz'
+GOOGLE_OAUTH2_CLIENT_ID      = site_config.GOOGLE_OAUTH2_CLIENT_ID    
+GOOGLE_OAUTH2_CLIENT_SECRET  = site_config.GOOGLE_OAUTH2_CLIENT_SECRET
 
 LOGIN_URL          = '/user/login/'
 LOGIN_REDIRECT_URL = '/'

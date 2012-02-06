@@ -8,3 +8,6 @@ SECRET_KEY        = "don't share me, bro!"
 ADMINS = (
     # ('Burner Dude', 'dude@example.com'),
 )
+
+GOOGLE_OAUTH2_CLIENT_ID      = ''
+GOOGLE_OAUTH2_CLIENT_SECRET  = ''
