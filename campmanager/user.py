@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, logout, login
 from django.core.cache import cache
 from campmanager.models import Burner, CACHE_KEY
+import datetime
 
 def login(request):
     return render_to_response("campmanager/user/login")
@@ -70,16 +71,23 @@ def myprofile(request):
     if request.method == 'POST':
         burner.realname = request.POST['realname'] 
         burner.mobile = request.POST['phone']
-        burner.arrival_date = request.POST['arrival_date']
-        msg = "Profile saved."
-        burner.save()
+        try:
+            burner.arrival_date = datetime.datetime.strptime(request.POST['arrival_date'], "%m-%d-%Y") #.strftime("%Y-%m-%d")
+            msg = "Profile saved."
+            burner.save()
+        except ValueError:
+            msg = "Invalid arrival date. Please format mm-dd-yyyy."
+            burner.arrival_date = datetime.date.today()
 
     t = loader.get_template('campmanager/user/myprofile')
     c = RequestContext(request, {
             'msg' : msg,
             'realname' : burner.realname,
             'phone' : burner.mobile,
-            'arrival_date' : burner.arrival_date or "",
+            'arrival_date' : str(burner.arrival_date) or "",
+            'arrival_date_y' : burner.arrival_date.year,
+            'arrival_date_m' : burner.arrival_date.month,
+            'arrival_date_d' : burner.arrival_date.day,
     })
     return HttpResponse(t.render(c))
 
