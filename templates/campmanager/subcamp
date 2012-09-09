@@ -1,0 +1,30 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}This Ain't Jack!{% endblock %}
+
+{% block content %}
+<h3>{{subcamp.name}} sub camp</h2>
+
+<p>
+{{totalpeople}} people in {{totalsites}} camp sites with {{totalshit}} big shit items =
+{{totalsqft}} sq. ft. 
+</p>
+
+{% if site_list %}
+    <table>
+        <tr class="h">
+           <th>Name</th><th>Number of people</th><th>0wnd by<th>Site description</th>
+        </tr>
+        {% for site in site_list %}
+             <tr class="{% cycle d0,d1 %}">
+                 <td valign="top"><a href="/campsite/{{ site.id }}">{{ site.name }}</a></td>
+                 <td valign="top" align="center">{{ site.numpeople }}</td>
+                 <td valign="top"><a href="/user/profile/{{ site.user }}">{{ site.user }}</td>
+                 <td>{{site.desc}}</td>
+             </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No sites registered yet.</p>
+{% endif %}
+
+{% endblock %}

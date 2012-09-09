@@ -1,0 +1,388 @@
+/*
+
+	zenlike1.0 by nodethirtythree design
+	http://www.nodethirtythree.com
+
+*/
+
+*
+{
+padding: 0em;
+margin: 0em;
+}
+
+body
+{
+background: #b4ad9d;
+padding: 35px 0px 35px 0px;
+width: 910px;
+}
+
+body,input
+{
+font-size: 10pt;
+font-family: "tahoma", "ariel", sansserif;
+color: #333333;
+}
+
+p
+{
+line-height: 1.5em;
+margin-bottom: 1.0em;
+text-align: justify;
+}
+
+a
+{
+color: #B96D00;
+text-decoration: none;
+}
+
+a:hover
+{
+text-decoration: underline;
+}
+
+h3 span
+{
+font-weight: normal;
+}
+
+h3
+{
+font-weight: bold;
+font-size: 1em;
+margin: .5em 0 .3em 0;
+}
+
+h4
+{
+font-weight: bold;
+font-size: .8em;
+margin: .5em 0 .3em 0;
+}
+
+th
+{
+font-size: .8em;
+font-weight: bold;
+}
+
+
+.contentarea
+{
+padding-top: .3em;
+}
+
+img
+{
+border: solid 1px #6F5230;
+}
+
+img.left
+{
+position: relative;
+float: left;
+margin: 0em 1.8em 1.4em 0em;
+}
+
+img.right
+{
+position: relative;
+float: right;
+margin: 0em 0em 1.8em 1.8em;
+}
+
+.divider1
+{
+position: relative;
+background: #fff url('images/border2.gif') repeat-x;
+height: 14px;
+margin: 2.0em 0em 1.5em 0em;
+clear: both;
+}
+
+.divider2
+{
+position: relative;
+height: 1px;
+border-bottom: solid 1px #eaeaea;
+margin: 2.0em 0em 2.0em 0em;
+}
+
+.post .details
+{
+position: relative;
+top: -1.5em;
+font-size: 0.8em;
+color: #787878;
+}
+
+.post ul.controls
+{
+clear: both;
+}
+
+.post ul.controls li
+{
+display: inline;
+font-size: 0.8em;
+}
+
+.post ul.controls li a
+{
+background-repeat: no-repeat;
+background-position: left;
+padding: 0em 1.0em 0em 20px;
+}
+
+.post ul.controls li a.printerfriendly
+{
+background-image: url('images/icon-printerfriendly.gif');
+}
+
+.post ul.controls li a.comments
+{
+background-image: url('images/icon-comments.gif');
+}
+
+.post ul.controls li a.more
+{
+background-image: url('images/icon-more.gif');
+}
+
+.box
+{
+position: relative;
+background: #FDFCF6 url('images/boxbg.gif') repeat-x;
+left: -1.5em;
+top: -1.5em;
+padding: 1.5em;
+border-bottom: solid 1px #E1D2BD;
+margin-bottom: 1.0em;
+}
+
+ul.linklist
+{
+list-style: none;
+}
+
+ul.linklist li
+{
+line-height: 2.0em;
+}
+
+table 
+{ 
+border:1px solid #999; 
+width:90%; 
+padding: 1em 2em 1em 2em;
+margin-top: 1em;
+border-collapse: collapse;
+}
+table td, table th
+{
+padding: 4px 6px 4px 6px;
+}
+tr.h {
+background-color: #444444;
+color: #FFFFFF;
+}
+tr.d0 {
+background-color: #FFFFFF;
+}
+tr.d1 {
+background-color: #DDDDDD;
+}
+
+.abox 
+{
+width:90%; 
+background: #FDFCF6 url('images/boxbg.gif') repeat-x;
+padding: 1em 2em 1em 2em;
+margin-top: 1em;
+border:1px solid #999; 
+}
+
+#upbg
+{
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 275px;
+background: #fff url('images/bg2.jpg') repeat-x;
+z-index: 1;
+}
+
+#outer
+{
+z-index: 2;
+position: relative;
+/*
+	The width value below controls the overall width of the design. By default it's set to 82%
+	(so it'll take up 82% of the browser window's width). You can set it to a different percentage
+	value (70%, 90%, etc.) or even a pixel value (760px, 800px, etc.) to enforce a fixed width.
+*/
+width: 82%;
+border: solid 7px #fff;
+background-color: #fff;
+margin: 0 auto;
+}
+
+#header
+{
+position: relative;
+width: 100%;
+height: 6.0em;
+background: #2B2B2B url('images/topbg.gif') repeat-x;
+margin-bottom: 2px;
+}
+
+#headercontent
+{
+position: absolute;
+bottom: 0em;
+padding: 0em 2.0em 1.3em 2.0em;
+}
+
+#headercontent h1
+{
+font-weight: normal;
+color: #fff;
+font-size: 2.5em;
+}
+
+#headercontent h2
+{
+font-size: 1.0em;
+font-weight: normal;
+color: #aaa;
+}
+
+#loginstatus
+{
+position: absolute;
+top: 3.5em;
+right: 2.0em;
+padding-right: 0.0em;
+color: #fff;
+}
+
+#search input.text
+{
+margin-right: 0.5em;
+vertical-align: middle;
+border-top: solid 1px #000000;
+border-right: 0px;
+border-bottom: solid 1px #777777;
+border-left: 0px;
+padding: 0.15em;
+width: 10.0em;
+}
+
+#search input.submit
+{
+background: #939B00 url('images/buttonbg.gif') repeat-x;
+border: solid 1px #5F6800;
+font-weight: bold;
+padding: 0.25em;
+font-size: 0.8em;
+color: #F2F3DE;
+vertical-align: middle;
+}
+
+#headerpic
+{
+position: relative;
+height: 79px;
+background: #fff url('images/hdrpic.jpg') no-repeat top left;
+margin-bottom: 2px;
+}
+
+#menu
+{
+position: relative;
+background: #eabf11 url('images/menubg.gif') repeat-x top left;
+height: 3.5em;
+padding: 0em 1.0em 0em 1.0em;
+margin-bottom: 2px;
+}
+
+#menu ul
+{
+position: absolute;
+top: 1.1em;
+}
+
+#menu ul li
+{
+position: relative;
+display: inline;
+}
+
+#menu ul li a
+{
+padding: 0.5em 1.0em 0.9em 1.0em;
+color: #000;
+text-decoration: none;
+font-weight: bold;
+}
+
+#menu ul li a:hover
+{
+text-decoration: underline;
+}
+
+#menubottom
+{
+background: #fff url('images/border1.gif') repeat-x;
+height: 14px;
+margin-bottom: .2em;
+}
+
+#content
+{
+padding: 0em 2.0em 0em 2.0em;
+}
+
+#primarycontainer
+{
+width: 100%;
+}
+
+#footer
+{
+position: relative;
+height: 2.0em;
+clear: both;
+padding-top: 5.0em;
+background: #fff url('images/border2.gif') repeat-x 0em 2.5em;
+font-size: 0.8em;
+}
+
+#footer .left
+{
+position: absolute;
+left: 2.0em;
+bottom: 1.2em;
+}
+
+#footer .right
+{
+position: absolute;
+right: 2.0em;
+bottom: 1.2em;
+}
+
+.error
+{
+padding: .5;
+margin: .5;
+color: #DD3333;
+}
+
+.errorlist
+{
+margin-left: 2em;
+}

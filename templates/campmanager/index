@@ -1,0 +1,29 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}This Ain't Jack!{% endblock %}
+
+{% block content %}
+<h3>Fandango sub camps</h2>
+
+<p>
+{{totalpeople}} people in {{totalsubcamps}} sub camps = {{totalsqft}} sq. ft. 
+</p>
+
+{% if subcamp_list %}
+    <table>
+        <tr class="h">
+           <th>Name</th><th>Number of people</th><th>sq ft</th><th>Description</th>
+        </tr>
+        {% for subcamp in subcamp_list %}
+             <tr class="{% cycle d0,d1 %}">
+                 <td valign="top"><a href="/subcamp/{{ subcamp.name }}">{{ subcamp.name }}</a></td>
+                 <td valign="top" align="center">{{ subcamp.numpeople }}</td>
+                 <td valign="top">{{ subcamp.sqft }}</td>
+                 <td>{{subcamp.desc}}</td>
+             </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No sub camps setup.</p>
+{% endif %}
+
+{% endblock %}

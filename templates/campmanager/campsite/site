@@ -1,0 +1,89 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}Camp Site: {{ campsite.name }}{% endblock %}
+
+{% block content %}
+
+<h3>Camp site: {{ campsite.name }}</h3>
+
+{% if not owner %}
+<table>
+<tr><td>Name:</td><td>{{ campsite.name }}</td></tr>
+<tr><td>Number of people:</td><td>{{ campsite.numpeople }}</td></tr>
+<tr><td>Description:</td><td>{{ campsite.desc }}</td></tr>
+<tr><td>Burner:</td><td><a href="/user/profile/{{campsite.user}}">{{ campsite.user }}</a></td></tr>
+</table>
+</p>
+{% else %}
+
+	{% if msg %}
+	  <p class="error">{{ msg }}</p>
+	{% endif %}
+
+<form action="." method="post">
+    <div class="abox">
+    Part of:
+    <br/>
+          <select name="subcamp">
+             {% for subcamp in subcamps %}
+                 {% ifequal campsite.subcamp.id subcamp.id %}
+                     <option id="{{ subcamp.id}}" selected="">{{subcamp.name}}</option>
+                 {% else %}
+                     <option id="{{ subcamp.id}}">{{subcamp.name}}</option>
+                 {% endifequal %}
+             {% endfor %}
+          </select>
+    <br/><br/>
+    Name:
+    <br/>
+    <input type="text" width="80" size="80" name="name" value="{{ campsite.name }}">
+    <br/><br/>
+    Number of people:
+    <br/>
+    <input type="text" width="4" size="4" name="numpeople" value="{{ campsite.numpeople }}">
+    <br/><br/>
+    Description:</td>
+    <br/>
+    <input type="text" width="1024" size="80" name="desc" value="{{ campsite.desc }}">
+    <br/><br/>
+    Burner:
+    <br/>
+    <a href="/user/profile/{{campsite.user}}">{{ campsite.user }}</a>
+    <br/><br/>
+    <input type="submit" value="Save" />
+    </div>
+</form>
+
+
+{% endif %}
+
+{% if campsite.id  %}
+<h3>Big shit areas for: {{ campsite.name }}</h3>
+
+{% if areas %}
+<table>
+     <tr class="h">
+        <th>Name</th>
+        <th>Desc</th>
+        <th>Size</th>
+     </tr>
+    {% for area in areas %}
+         <tr class="{% cycle d0,d1 %}">
+            <td><a href="/campsite/{{ campsite.id }}/bigshit/{{ area.id }}">{{ area.name }}</a></td>
+            <td>{{ area.desc }}</td>
+            <td>{{ area.width }} x {{ area.height }} ft.</td>
+         </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>None</a>
+{% endif %}
+
+{% if owner %}
+<p>
+<a href="/campsite/{{campsite.id}}/bigshit/0">Add more big shit</a>
+</p>
+{% endif %}
+
+{% endif %}
+
+{% endblock %}

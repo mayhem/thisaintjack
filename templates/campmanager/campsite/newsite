@@ -1,0 +1,30 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}Create new camp site{% endblock %}
+
+{% block content %}
+<h3>Create new campsite</h3>
+      <form action="." method="post">
+        {% if error %}
+          <p class="error">Error: {{ error }}</p>
+        {% endif %}
+
+        <label for="name">Camp site name:</label> 
+        <br/>
+        <input type="text" name="name" value="{{ name }}" size="80">
+        <br/>
+
+        <label for="desc">Camp site description:</label> 
+        <br/>
+        <input type="text" name="desc" value="{{ desc }}" size="80">
+        <br/>
+
+        <label for="name">Number of people on camp site:</label> 
+        <br/>
+        <input type="text" name="numpeople" value="{{ numpeople }}" size="4" width="4">
+        <br/>
+
+        <br/>
+
+        <input type="submit" value="Create the site" />
+      </label>
+{% endblock %}

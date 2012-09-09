@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="/static/style.css" type="text/css" />
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+
+<div id="outer">
+
+    <div id="header">
+		<div id="headercontent">
+            <h1><span>This Ain't</span> Jack!</h1>
+            <h2>an attempt at fecal cohesion without Jack Porter</h2>
+		</div>
+    </div>
+
+	<div id="loginstatus">
+        {% if user.is_authenticated %}
+          Logged in as <b>{{ user.username }}</b>
+        {% else %}
+          Your ass is not logged in.
+        {% endif %}
+	</div>
+
+	<div id="headerpic"></div>
+	
+	<div id="menu">
+		<ul>
+			<li><a href="/">Sub camps</a></li>
+            <li><a href="/bigshit">Big shit</a></li>
+            {% if user.is_authenticated %}
+                 <li><a href="/burners">Burners</a></li>
+                <li><a href="/campsite/0">Register campsite</a></li>
+                <li><a href="/user/logout">Logout</a></li>
+                <li><a href="/user/profile">Profile</a></li>
+            {% else %}
+                <li><a href="/openid/login">Login</a></li>
+                <li><a href="/user/newlogin">Create account</a></li>
+            {% endif %}
+			<li><a href="/help">Help</a></li>
+		</ul>
+	</div>
+	<div id="menubottom"></div>
+	
+	<div id="content">
+        {% block content %}
+        {% endblock %}
+	</div>
+
+	<div id="footer">
+			<div class="left">&copy; 2007 This Ain't Jack! All rights wronged.</div>
+			<div class="right"> Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a>. Jank by <a href="http://mayhem-chaos.net">Mayhem</a>. <a href="/admin">Admin</a>
+	</div>
+	
+</div>
+
+</body>
+</html>

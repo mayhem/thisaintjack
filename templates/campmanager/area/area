@@ -1,0 +1,59 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}Big shit: {{ area.name }}{% endblock %}
+
+{% block content %}
+
+<h3>Big shit: {{ area.name }}</h3>
+
+{% if not owner %}
+<div class="abox">
+Name:
+<br/>
+{{ area.name }}
+<br/><br/>
+Size:
+<br/>
+{{ area.width }} x {{ area.height }} ft.
+<br/><br/>
+Description:
+<br/>
+{{ area.desc }}
+<br/><br/>
+Burner:
+<br/>
+<a href="/user/profile/{{area.user}}">{{ campsite.user }}</a>
+<br/><br/>
+</div>
+{% else %}
+
+    {% if msg %}
+      <p class="error">{{ msg }}</p>
+    {% endif %}
+
+<form action="." method="post">
+    <div class="abox">
+       Name:   
+       <br/>
+       <input type="text" width="80" size="80" name="name" value="{{ area.name }}">
+       <br/><br/>
+       Size:
+       <br/>
+       <input type="text" width="4" size="4" name="width" value="{{ area.width }}"> x
+       <input type="text" width="4" size="4" name="height" value="{{ area.height }}"> ft.
+       <br/><br/>
+       Description:
+       <br/>
+       <input type="text" width="1024" size="80" name="desc" value="{{ area.desc }}">
+       <br/><br/>
+       Campsite:
+       <br/>
+       <a href="/campsite/{{campsite.id}}">{{ campsite.name }}</a>
+       <br/><br/>
+       <input type="submit" value="Save" />
+    </div>
+</form>
+
+
+{% endif %}
+
+{% endblock %}

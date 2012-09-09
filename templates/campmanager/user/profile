@@ -1,0 +1,27 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}Profile for {{ burner }}{% endblock %}
+
+{% block content %}
+<h3>Profile for {{ burner }}</h3>
+
+
+{% if error %}
+    <p>No such burner: {{ burner }}</p>
+{% else %}
+
+    <div class="abox">
+    Real Name:
+    <br/>
+    {{realname}}
+    <br/>
+    E-mail:
+    <br/>
+    {{email}}
+    <br/>
+    Mobile number:</td><td>{{phone}}</td></tr>
+    <br/>
+    </div>
+
+{% endif %}
+
+{% endblock %}

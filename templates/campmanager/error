@@ -1,0 +1,9 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}This Ain't Jack!{% endblock %}
+
+{% block content %}
+<h3>Error</h2>
+
+<p class="error">{{ err }}</p>
+
+{% endblock %}

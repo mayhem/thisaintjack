@@ -1,0 +1,23 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}Burner list{% endblock %}
+
+{% block content %}
+<h3>Burner list</h3>
+{% if burners %}
+    <table>
+        <tr class="h">
+          <th>Playa name</th><th>Real name</th><th>Mobile</th><th>e-mail</th>
+        </tr>
+        {% for burner in burners %}
+             <tr class="{% cycle d0,d1 %}">
+                <td><a href="/user/profile/{{burner.user.username}}">{{burner.user.username}}</td>
+                <td>{{burner.realname}}</td>
+                <td>{{burner.mobile}}</td>
+                <td>{{burner.email}}</td>
+             </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No burners registered.</p>
+{% endif %}
+{% endblock %}

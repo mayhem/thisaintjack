@@ -1,0 +1,31 @@
+{% extends "campmanager/layout/base.html" %}
+{% block title %}My Burner Profile{% endblock %}
+
+{% block content %}
+<h3>My Burner Profile</h3>
+
+{% if msg %}
+  <p class="error">{{ msg }}</p>
+{% endif %}
+
+<p>
+Please fill out your real name, email address and a contact phone number.
+These details will be available to everyone using the site, but not the general public.
+Please do enter these so people can get a hold of each other!
+</p>
+
+<p>
+<form method="post" action="/user/profile/">
+Real Name:<br/>
+<input type="text" len="50" name="realname" value="{{realname}}"><br/>
+e-mail address:<br/>
+<input type="text" len="80" name="email" value="{{email}}" value="{{email}}"><br/>
+phone num: (mobile preferred)<br/>
+<input type="text" len="25" name="phone" value="{{phone}}"><br/>
+<br/>
+<input type="submit" value="Save profile">
+</form>
+</p>
+<br/>
+
+{% endblock %}
