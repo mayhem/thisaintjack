@@ -2,10 +2,10 @@
 {% block title %}This Ain't Jack!{% endblock %}
 
 {% block content %}
-<h3>Fandango sub camps</h2>
+<h3>Camps</h2>
 
 <p>
-{{totalpeople}} people in {{totalsubcamps}} sub camps = {{totalsqft}} sq. ft. 
+{{totalpeople}} people in {{totalsubcamps}} camps = {{totalsqft}} sq. ft. 
 </p>
 
 {% if subcamp_list %}

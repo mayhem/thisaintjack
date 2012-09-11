@@ -2,14 +2,14 @@
 {% block title %}My Burner Profile{% endblock %}
 
 {% block content %}
-<h3>My Burner Profile</h3>
+<h3>My Group Profile</h3>
 
 {% if msg %}
   <p class="error">{{ msg }}</p>
 {% endif %}
 
 <p>
-Please fill out your real name, email address and a contact phone number.
+Please fill out your real name, contact phone number and arrival date.
 These details will be available to everyone using the site, but not the general public.
 Please do enter these so people can get a hold of each other!
 </p>

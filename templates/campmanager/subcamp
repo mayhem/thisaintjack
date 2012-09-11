@@ -2,17 +2,17 @@
 {% block title %}This Ain't Jack!{% endblock %}
 
 {% block content %}
-<h3>{{subcamp.name}} sub camp</h2>
+<h3>{{subcamp.name}} camp</h2>
 
 <p>
-{{totalpeople}} people in {{totalsites}} camp sites with {{totalstuff}} big stuff items =
+{{totalpeople}} people in {{totalsites}} groups =
 {{totalsqft}} sq. ft. 
 </p>
 
 {% if site_list %}
     <table>
         <tr class="h">
-           <th>Name</th><th>Number of people</th><th>0wnd by<th>Site description</th>
+           <th>Name</th><th>Number of people</th><th>owner<th>Site description</th>
         </tr>
         {% for site in site_list %}
              <tr class="{% cycle d0,d1 %}">

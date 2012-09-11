@@ -56,34 +56,4 @@
 
 {% endif %}
 
-{% if group.id  %}
-<h3>Big stuff areas for: {{ group.name }}</h3>
-
-{% if areas %}
-<table>
-     <tr class="h">
-        <th>Name</th>
-        <th>Desc</th>
-        <th>Size</th>
-     </tr>
-    {% for area in areas %}
-         <tr class="{% cycle d0,d1 %}">
-            <td><a href="/group/{{ group.id }}/bigstuff/{{ area.id }}">{{ area.name }}</a></td>
-            <td>{{ area.desc }}</td>
-            <td>{{ area.width }} x {{ area.height }} ft.</td>
-         </tr>
-    {% endfor %}
-</table>
-{% else %}
-<p>None</a>
-{% endif %}
-
-{% if owner %}
-<p>
-<a href="/group/{{group.id}}/bigstuff/0">Add more big stuff</a>
-</p>
-{% endif %}
-
-{% endif %}
-
 {% endblock %}
