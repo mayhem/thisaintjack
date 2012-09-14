@@ -5,7 +5,8 @@
 <h3>Camps</h2>
 
 <p>
-{{totalpeople}} people in {{totalsubcamps}} camps = {{totalsqft}} sq. ft. 
+{{totalpeople}} people in {{totalsubcamps}} camps = {{totalsqft}} sq. ft. <br/>
+{{rvs}} RVs = {{rvssqft}} sq. ft.
 </p>
 
 {% if subcamp_list %}

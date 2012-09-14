@@ -4,54 +4,7 @@
 {% block content %}
 
 <h3>Help</h3>
-<br/>
 
-<div class="box">
-<p>
-To use this web-app, please follow these steps:
-</p>
-
-<ol>
-<li><a href="/user/newlogin">Create an account</a>. Please only create one account per every camp-site. See the FAQ below
-for details. Please update your profile to tell us about yourself and how we can get a hold of you.
-</li>
-<li><a href="/group/0">Register a group</a>. Give your group some descriptive name so we can figure who
-is who.</li>
-<li>In your new group, register big-stuff (art, free standing shade structures, etc -- see FAQ below) that will be associated
-with your group.</li>
-</ol>
-</div>
-
-<h4>FAQ</h4>
-<br/>
-
-<div class="box">
-<ul>
-<li>Who should create an account? One person per camp-site should create an account and tell us about your camp-site. If
-you have two vehicles travelling together to make one camp-site, elect one person to create an account and tell us
-about your site.</li>
-<li>If something changes, should I come back here? Yes! Please keep your profil, camp-site and big-stuff up to date.</li>
-<li>I can't come to burning man! How do I take myself out of this thing? Edit your camp-site and update the right number of people. If the entire camp-site won't be in Orbitals (or even at the burn), set the people attening to 0. I'm bummed you won't be there!</li>
-<li>Why the fuck are we doing this? We've created this web-app to take the pain out of planning the camp. If everyone
-can take a litle bit of time to tell us about your camp-sites we can make it easier for everyone. The camp organizers
-can then take this information and tell Burning Man about our space needs. Also, we have all the information gathered
-in one central location so we can place peopl in camp before we arrive on the playa.</li>
-</ul>
-</div>
-
-<h4>Glossary</h4>
-<br/>
-
-<div class="box">
-<ul>
-<li><b>Camp site</b>: An area where you, people traveling with you and your vehicle will be. Unless your vehicle is an
-RV, you do not need to tell us about your vehicle.</li>
-<li><b>Big stuff</b>: Anything beyond your camp-site that will take up space in camp. Please include free standing shade
-structures, RVs, showers, art displays and the like. Do not include shade structures attached to your vehicle, unless they're
-bigger than 10'x10'.</li>
-<li><b>Burner</b>: That's you!</a></li>
-<li><b>Jack</b>: The superhuman canadian mad scientist. And this web app ain't him!</li>
-</ul>
-</div>
+<a href="http://celebrategreg.org/wiki/index.php/RSVP_Help">The help files live here.</a>
 
 {% endblock %}

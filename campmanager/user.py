@@ -72,6 +72,10 @@ def myprofile(request):
     if request.method == 'POST':
         burner.realname = request.POST['realname'] 
         burner.mobile = request.POST['phone']
+        burner.arrival_date = "2012-10-13"
+        msg = "Profile saved."
+        burner.save()
+
 #        try:
 #            burner.arrival_date = datetime.datetime.strptime(request.POST['arrival_date'], "%m-%d-%Y") #.strftime("%Y-%m-%d")
 #            msg = "Profile saved."

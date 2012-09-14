@@ -3,11 +3,11 @@
 
 {% block content %}
 
-{% if setup %}
-    <h3>Group: {{ group.name }}</h3>
-{% else %}
+{% ifequal group.id None %}
     <h3>Register your group</h3>
-{% endif %}
+{% else %}
+    <h3>Group: {{ group.name }}</h3>
+{% endifequal %}
 
 {% if not owner %}
 <table>
@@ -41,6 +41,16 @@
              {% endfor %}
           </select>
     <br/><br/>
+
+    Type: 
+    <br/>
+          <select name="type">
+              <option id="t" value="t" {% if group.type == 't' %}selected=""{% endif %}>tent camping</option>
+              <option id="r" value="r" {% if group.type == 'r' %}selected=""{% endif %}>RV camping</option>
+              <option id="o" value="o" {% if group.type == 'o' %}selected=""{% endif %}>off-site lodging</option>
+          </select>
+    <br/><br/>
+
     Name:
     <br/>
     <input type="text" width="80" size="80" name="name" value="{{ group.name }}">
@@ -53,7 +63,7 @@
     <br/>
     <input type="text" width="1024" size="80" name="desc" value="{{ group.desc }}">
     <br/><br/>
-    Burner:
+    Attendee:
     <br/>
     <a href="/user/profile/{{group.user}}">{{ group.user }}</a>
     <br/><br/>

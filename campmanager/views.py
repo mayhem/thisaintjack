@@ -33,12 +33,19 @@ def index(request):
 
     subcamps = SubCamp.objects.all().order_by('-name')
     sites = Group.objects.all().order_by('-numpeople')
+    rvs = 0
+    for site in sites:
+        if site.type == 'r': rvs += 1
+    rvssqft = 900 * rvs
+
     t = loader.get_template('campmanager/index')
     c = RequestContext(request, {
         'subcamp_list': subcamp_list,
         'totalpeople' : totalpeople,
         'totalsubcamps' : len(subcamps),
-        'totalsqft' : totalsqft
+        'totalsqft' : totalsqft,
+        'rvs' : rvs,
+        'rvssqft' : rvssqft,
     })
     return HttpResponse(t.render(c))
 
