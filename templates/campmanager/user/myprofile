@@ -1,5 +1,5 @@
 {% extends "campmanager/layout/base.html" %}
-{% block title %}My Burner Profile{% endblock %}
+{% block title %}My Group Profile{% endblock %}
 
 {% block content %}
 <h3>My Group Profile</h3>

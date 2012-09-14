@@ -29,7 +29,7 @@ def group(request, siteid):
         if subcamps:
             group.subcamp = subcamps[0]
         else:
-            msg = "Error: Somehow you managed to pick an non existing subcamp."
+            msg = "Error: Somehow you managed to pick an non existing camp."
             
         try:
             group.numpeople = int(request.POST['numpeople'])
@@ -46,7 +46,7 @@ def group(request, siteid):
                 pass
 
         if not msg:
-            if group.name == "" or group.desc == "": msg = "Error: Please enter the name of the camp site and a short description."
+            if group.name == "" or group.desc == "": msg = "Error: Please enter the name of the group and a short description."
             if not msg:
                 cache.delete(CACHE_KEY)
                 group.save()
@@ -57,6 +57,10 @@ def group(request, siteid):
 
     subcamps = SubCamp.objects.all().order_by('name')
     areas = Area.objects.filter(group=siteid).order_by('-name')
+    if int(siteid) == 0:
+        title = "Register new group"
+    else:
+        title = "Group: %s" % group.name
     t = loader.get_template('campmanager/group/group')
     c = RequestContext(request, {
         'msg' : msg,
@@ -65,5 +69,6 @@ def group(request, siteid):
         'owner' : request.user.username == group.user.username,
         'subcamps' : subcamps,
         'setup' : setup,
+        'title' : title,
     })
     return HttpResponse(t.render(c))

@@ -1,5 +1,5 @@
 {% extends "campmanager/layout/base.html" %}
-{% block title %}Burner list{% endblock %}
+{% block title %}Group contact list{% endblock %}
 
 {% block content %}
 <h3>Group contact list</h3>

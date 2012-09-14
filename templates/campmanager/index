@@ -1,5 +1,5 @@
 {% extends "campmanager/layout/base.html" %}
-{% block title %}This Ain't Jack!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
 <h3>Camps</h2>
@@ -24,7 +24,7 @@
         {% endfor %}
     </table>
 {% else %}
-    <p>No sub camps setup.</p>
+    <p>No camps setup.</p>
 {% endif %}
 
 {% endblock %}

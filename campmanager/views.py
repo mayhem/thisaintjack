@@ -53,7 +53,7 @@ def subcamp(request, subcamp):
 
     subcamps = SubCamp.objects.filter(name=subcamp)
     if not subcamps:
-        err = "Sub camp %s does not exist, bukkake face!" % subcamp
+        err = "Camp %s does not exist!" % subcamp
         t = loader.get_template('campmanager/error')
         c = RequestContext(request, {'err':err})
         return HttpResponse(t.render(c))

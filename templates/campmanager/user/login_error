@@ -1,5 +1,5 @@
 {% extends "campmanager/layout/base.html" %}
-{% block title %}Login{% endblock %}
+{% block title %}Login error{% endblock %}
 
 {% block content %}
 <h2>Login error</h2>
