@@ -6,3 +6,4 @@ virtualenv
 thisaintjack.db
 *.swp
 thisaintjack/site_config.py
+static

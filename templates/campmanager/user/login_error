@@ -4,8 +4,12 @@
 {% block content %}
 <h2>Login error</h2>
 
+<br/>
 <p>
-Your login failed. The error given was: {{ error }}. Bummer. :(
+Your login failed. The error given was: {{ error }}
+</p>
+<p>
+Did you cancel the login? If so, <a href="/user/login">try again</a>.
 </p>
 
 {% endblock %}
