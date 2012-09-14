@@ -2,11 +2,11 @@
 {% block title %}Burner list{% endblock %}
 
 {% block content %}
-<h3>Burner list</h3>
+<h3>Group contact list</h3>
 {% if burners %}
     <table>
         <tr class="h">
-          <th>Playa name</th><th>Real name</th><th>Mobile</th><th>e-mail</th>
+          <th>Login</th><th>Real Name</th><th>Mobile</th><th>e-mail</th>
         </tr>
         {% for burner in burners %}
              <tr class="{% cycle d0,d1 %}">
