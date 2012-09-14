@@ -3,7 +3,11 @@
 
 {% block content %}
 
-<h3>Group: {{ group.name }}</h3>
+{% if setup %}
+    <h3>Group: {{ group.name }}</h3>
+{% else %}
+    <h3>Register your group</h3>
+{% endif %}
 
 {% if not owner %}
 <table>
@@ -15,9 +19,13 @@
 </p>
 {% else %}
 
-	{% if msg %}
-	  <p class="error">{{ msg }}</p>
-	{% endif %}
+{% if msg %}
+  <p class="error">{{ msg }}</p>
+{% endif %}
+
+{% if setup %}
+    To register a group of people attending Celebrate Greg, please fill out the form below:
+{% endif %}
 
 <form action="." method="post">
     <div class="abox">

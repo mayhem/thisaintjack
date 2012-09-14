@@ -6,6 +6,7 @@ from django.core.cache import cache
 
 def group(request, siteid):
 
+    setup = request.GET.get('setup', '')
     msg = None
     groups = Group.objects.filter(id=siteid)
     if groups:
@@ -46,7 +47,7 @@ def group(request, siteid):
             if not msg:
                 cache.delete(CACHE_KEY)
                 group.save()
-                msg = "Site saved"
+                msg = "Group registration saved. Thanks for registering!"
 
     subcamps = SubCamp.objects.all().order_by('name')
     areas = Area.objects.filter(group=siteid).order_by('-name')
@@ -56,6 +57,7 @@ def group(request, siteid):
         'group': group,
         'areas': areas,
         'owner' : request.user.username == group.user.username,
-        'subcamps' : subcamps
+        'subcamps' : subcamps,
+        'setup' : setup
     })
     return HttpResponse(t.render(c))

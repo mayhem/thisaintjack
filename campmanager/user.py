@@ -58,6 +58,7 @@ def logoff(request):
 
 def myprofile(request):
 
+    setup = request.GET.get('setup', '')
     msg = None
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/user/login/?next=%s' % request.path)
@@ -71,23 +72,26 @@ def myprofile(request):
     if request.method == 'POST':
         burner.realname = request.POST['realname'] 
         burner.mobile = request.POST['phone']
-        try:
-            burner.arrival_date = datetime.datetime.strptime(request.POST['arrival_date'], "%m-%d-%Y") #.strftime("%Y-%m-%d")
-            msg = "Profile saved."
-            burner.save()
-        except ValueError:
-            msg = "Invalid arrival date. Please format mm-dd-yyyy."
-            burner.arrival_date = datetime.date.today()
+#        try:
+#            burner.arrival_date = datetime.datetime.strptime(request.POST['arrival_date'], "%m-%d-%Y") #.strftime("%Y-%m-%d")
+#            msg = "Profile saved."
+#            burner.save()
+#        except ValueError:
+#            msg = "Invalid arrival date. Please format mm-dd-yyyy."
+#            burner.arrival_date = datetime.date.today()
+        if request.POST['setup'] == '1':
+            return HttpResponseRedirect('/group/0/?setup=1')
 
     t = loader.get_template('campmanager/user/myprofile')
     c = RequestContext(request, {
             'msg' : msg,
             'realname' : burner.realname,
             'phone' : burner.mobile,
-            'arrival_date' : str(burner.arrival_date) or "",
-            'arrival_date_y' : burner.arrival_date.year,
-            'arrival_date_m' : burner.arrival_date.month,
-            'arrival_date_d' : burner.arrival_date.day,
+            'setup' : setup,
+#            'arrival_date' : str(burner.arrival_date) or "",
+#            'arrival_date_y' : burner.arrival_date.year,
+#            'arrival_date_m' : burner.arrival_date.month,
+#            'arrival_date_d' : burner.arrival_date.day,
     })
     return HttpResponse(t.render(c))
 

@@ -21,19 +21,25 @@ Real Name:<br/>
 <br/>
 phone num: (mobile preferred)<br/>
 <input type="text" len="25" name="phone" value="{{phone}}"><br/>
-<br/>
+<!--br/>
 arrival date:<br/>
-<input id="datepicker" type="text" len="25" name="arrival_date" value="{{arrival_date_m}}-{{arrival_date_d}}-{{arrival_date_y}}"><br/>
+<input id="datepicker" type="text" len="25" name="arrival_date" value="{{arrival_date_m}}-{{arrival_date_d}}-{{arrival_date_y}}"><br/-->
 <br/>
-<input type="submit" value="Save profile">
+<input type="hidden" name="setup" value="{{ setup }}">
+{% if setup %}
+   <input type="submit" value="Continue">
+{% else %}
+   <input type="submit" value="Save profile">
+{% endif %}
+
 </form>
 </p>
 <br/>
 
-<script>
+<!--script>
 $(function() {
     d = new Date({{arrival_date_y}}, {{arrival_date_m}} - 1, {{arrival_date_d}});
     $( "#datepicker" ).datepicker({ defaultDate : d, dateFormat : "mm-dd-yy"});
 });
-</script>
+</script-->
 {% endblock %}
