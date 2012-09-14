@@ -24,7 +24,17 @@
 
 <form action="." method="post">
     <div class="abox">
-    Part of:
+
+    Type of camping: 
+    <br/>
+          <select name="type">
+              <option id="t" value="t" {% if group.type == 't' %}selected=""{% endif %}>tent camping</option>
+              <option id="r" value="r" {% if group.type == 'r' %}selected=""{% endif %}>RV camping</option>
+              <option id="o" value="o" {% if group.type == 'o' %}selected=""{% endif %}>off-site lodging</option>
+          </select>
+    <br/><br/>
+
+    I would like to camp with:
     <br/>
           <select name="subcamp">
              {% for subcamp in subcamps %}
@@ -37,28 +47,19 @@
           </select>
     <br/><br/>
 
-    Type: 
-    <br/>
-          <select name="type">
-              <option id="t" value="t" {% if group.type == 't' %}selected=""{% endif %}>tent camping</option>
-              <option id="r" value="r" {% if group.type == 'r' %}selected=""{% endif %}>RV camping</option>
-              <option id="o" value="o" {% if group.type == 'o' %}selected=""{% endif %}>off-site lodging</option>
-          </select>
-    <br/><br/>
-
-    Name:
+    Group name: (ex. Aleta & Mayhem)
     <br/>
     <input type="text" width="80" size="80" name="name" value="{{ group.name }}">
     <br/><br/>
-    Number of people:
+    Number of people in your group/RV/travel posse:     
     <br/>
     <input type="text" width="4" size="4" name="numpeople" value="{{ group.numpeople }}">
     <br/><br/>
-    Description:</td>
+    Description (tell us a bit about your camping setup): </td>
     <br/>
     <input type="text" width="1024" size="80" name="desc" value="{{ group.desc }}">
     <br/><br/>
-    Attendee:
+    Group contact:
     <br/>
     <a href="/user/profile/{{group.user}}">{{ group.user }}</a>
     <br/><br/>

@@ -12,7 +12,7 @@
 {% if site_list %}
     <table>
         <tr class="h">
-           <th>Name</th><th>Number of people</th><th>owner<th>Site description</th>
+           <th>Name</th><th>Number of people</th><th>Group contact<th>Group description</th>
         </tr>
         {% for site in site_list %}
              <tr class="{% cycle d0,d1 %}">

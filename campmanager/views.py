@@ -8,7 +8,7 @@ from campmanager.models import Burner, Group, Area, SubCamp, CACHE_KEY
 def index(request):
 
     locale.setlocale(locale.LC_ALL, "")
-    subcamps = SubCamp.objects.all()
+    subcamps = SubCamp.objects.all().order_by('name')
 
     totalpeople = 0
     totalsqft = 0

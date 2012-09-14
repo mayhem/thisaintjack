@@ -295,7 +295,7 @@ vertical-align: middle;
 #headerpic
 {
 position: relative;
-height: 79px;
+height: 43px;
 background: #fff url('images/hdrpic.jpg') no-repeat top left;
 margin-bottom: 2px;
 }
@@ -307,6 +307,13 @@ background: #eabf11 url('images/menubg.gif') repeat-x top left;
 height: 3.5em;
 padding: 0em 1.0em 0em 1.0em;
 margin-bottom: 2px;
+}
+
+.login-ul
+{
+font-size: 120%;
+list-style-type: none;
+padding-left: 2em;
 }
 
 #menu ul

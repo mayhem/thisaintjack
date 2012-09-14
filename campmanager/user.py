@@ -16,7 +16,10 @@ def login_created(request):
     return render_to_response("campmanager/user/login_created")
 
 def login_error(request):
-    return render_to_response("campmanager/user/login_error")
+    error = request.GET.get('error', 'Unknown!')
+    return render_to_response("campmanager/user/login_error", {
+        'error' : error
+    })
 
 def disconnected(request):
     logout(request)

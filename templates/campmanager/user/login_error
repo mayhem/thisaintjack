@@ -5,7 +5,7 @@
 <h2>Login error</h2>
 
 <p>
-Something happened with yuour login. :(
+Your login failed. The error given was: {{ error }}. Bummer. :(
 </p>
 
 {% endblock %}

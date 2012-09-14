@@ -154,18 +154,19 @@ LOGGING = {
 }
 
 AUTHENTICATION_BACKENDS = (
-#    'social_auth.backends.twitter.TwitterBackend',
-#    'social_auth.backends.facebook.FacebookBackend',
-#    'social_auth.backends.google.GoogleOAuthBackend',
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
     'social_auth.backends.google.GoogleOAuth2Backend',
-#    'social_auth.backends.google.GoogleBackend',
 #    'social_auth.backends.yahoo.YahooBackend',
-#    'social_auth.backends.OpenIDBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
 GOOGLE_OAUTH2_CLIENT_ID      = site_config.GOOGLE_OAUTH2_CLIENT_ID    
 GOOGLE_OAUTH2_CLIENT_SECRET  = site_config.GOOGLE_OAUTH2_CLIENT_SECRET
+TWITTER_CONSUMER_KEY         = site_config.TWITTER_CONSUMER_KEY
+TWITTER_CONSUMER_SECRET      = site_config.TWITTER_CONSUMER_SECRET
+FACEBOOK_APP_ID              = site_config.FACEBOOK_APP_ID        
+FACEBOOK_API_SECRET          = site_config.FACEBOOK_API_SECRET         
 
 LOGIN_URL          = '/user/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -176,3 +177,6 @@ SOCIAL_AUTH_DEFAULT_USERNAME = 'oauth_user'
 SOCIAL_AUTH_EXPIRATION = 'expires'
 SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email',]
 SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = '/user/disconnected/'
+SOCIAL_AUTH_BACKEND_ERROR_URL = '/user/login_error'
+
+FACEBOOK_EXTENDED_PERMISSIONS = ['email']
