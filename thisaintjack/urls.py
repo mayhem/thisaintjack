@@ -15,9 +15,9 @@ urlpatterns = patterns('',
     url(r'^burners/$', 'campmanager.views.burnerlist'),
     url(r'^bigstuff/$', 'campmanager.views.bigstufflist'),
 
-    url(r'^subcamp/(?P<subcamp>[\w\s]+)/$', 'campmanager.views.subcamp'),
-    url(r'^group/(?P<siteid>\d+)/$', 'campmanager.group.group'),
-    url(r'^group/(?P<siteid>\d+)/bigstuff/(?P<stuffid>\d+)/$', 'campmanager.area.area'),
+    url(r'^subcamp/(?P<subcamp>[^/]+)/$', 'campmanager.views.subcamp'),
+    url(r'^group/(?P<siteid>[^/]+)/$', 'campmanager.group.group'),
+    url(r'^group/(?P<siteid>[^/]+)/bigstuff/(?P<stuffid>\d+)/$', 'campmanager.area.area'),
 
     url(r'^user/newlogin/$', 'campmanager.user.newlogin'),
     url(r'^user/profile/(?P<username>[\w\s\.-]+)/$', 'campmanager.user.profile'),
