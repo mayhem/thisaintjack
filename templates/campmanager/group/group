@@ -9,7 +9,7 @@
 <tr><td>Name:</td><td>{{ group.name }}</td></tr>
 <tr><td>Number of people:</td><td>{{ group.numpeople }}</td></tr>
 <tr><td>Description:</td><td>{{ group.desc }}</td></tr>
-<tr><td>Burner:</td><td><a href="/user/profile/{{group.user}}">{{ group.user }}</a></td></tr>
+<tr><td>Group contact:</td><td><a href="/user/profile/{{group.user}}">{{ group.user }}</a></td></tr>
 </table>
 </p>
 {% else %}
@@ -34,7 +34,7 @@
           </select>
     <br/><br/>
 
-    I would like to camp with:
+    I would like to camp with: (If you are confused about this, choose General Camping!)
     <br/>
           <select name="subcamp">
              {% for subcamp in subcamps %}
