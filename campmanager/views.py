@@ -49,6 +49,7 @@ def index(request):
     })
     return HttpResponse(t.render(c))
 
+types = { 't' : 'tent', 'o' : 'off-site', 'r' : "rv" }
 def subcamp(request, subcamp):
 
     subcamps = SubCamp.objects.filter(name=subcamp)
@@ -72,6 +73,8 @@ def subcamp(request, subcamp):
     totalsqft = locale.format("%d", int(totalpeople) * 500, grouping=True)
 
     sites = Group.objects.filter(subcamp=subcamp).order_by('-numpeople')
+    for site in sites:
+        site.type = types[site.type] 
     t = loader.get_template('campmanager/subcamp')
     c = RequestContext(request, {
         'subcamp' : subcamp,
@@ -88,7 +91,7 @@ def burnerlist(request):
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/user/login/?next=%s' % request.path)
 
-    burners = Burner.objects.all().order_by('-realname')
+    burners = Burner.objects.all().order_by('realname')
     t = loader.get_template('campmanager/burners')
     c = RequestContext(request, {
         'burners': burners

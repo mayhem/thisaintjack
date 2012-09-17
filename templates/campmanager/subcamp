@@ -12,13 +12,14 @@
 {% if site_list %}
     <table>
         <tr class="h">
-           <th>Name</th><th>Number of people</th><th>Group contact<th>Group description</th>
+           <th>Name</th><th>Number of people</th><th>Group contact</th><th>Type</th><th>Group description</th>
         </tr>
         {% for site in site_list %}
              <tr class="{% cycle d0,d1 %}">
                  <td valign="top"><a href="/group/{{ site.id }}">{{ site.name }}</a></td>
                  <td valign="top" align="center">{{ site.numpeople }}</td>
                  <td valign="top"><a href="/user/profile/{{ site.user }}">{{ site.user }}</td>
+                 <td valign="top" align="center">{{ site.type }}</td>
                  <td>{{site.desc}}</td>
              </tr>
         {% endfor %}
