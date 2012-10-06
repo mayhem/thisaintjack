@@ -33,9 +33,9 @@ def group(request, siteid):
             
         try:
             group.numpeople = int(request.POST['numpeople'])
-            if group.numpeople <= 0: raise ValueError
+            if group.numpeople < 0: raise ValueError
         except ValueError:
-            msg = "Error: Please enter a positive number for number of people!"
+            msg = "Error: Please enter a positive number (or 0) for number of people!"
             group.numpeople = 0
 
         if int(siteid) == 0:
