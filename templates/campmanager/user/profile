@@ -24,4 +24,19 @@
 
 {% endif %}
 
+    <h4>Groups registered by {{burner}}</h4>
+    <table>
+        <tr class="h">
+           <th>Name</th><th>Number of people</th><th>Type</th><th>Group description</th>
+        </tr>
+        {% for group in groups %}
+             <tr class="{% cycle d0,d1 %}">
+                 <td valign="top"><a href="/group/{{ group.id }}">{{ group.name }}</a></td>
+                 <td valign="top" align="center">{{ group.numpeople }}</td>
+                 <td valign="top" align="center">{{ group.type }}</td>
+                 <td>{{group.desc}}</td>
+             </tr>
+        {% endfor %}
+   </table>
+
 {% endblock %}

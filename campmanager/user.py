@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, logout, login
 from django.core.cache import cache
-from campmanager.models import Burner, CACHE_KEY
+from campmanager.models import Burner, Group, CACHE_KEY
 import datetime
 
 def login(request):
@@ -115,6 +115,7 @@ def profile(request, username):
         else:
             burner = Burner()
 
+    groups = Group.objects.filter(user=u.id)
     t = loader.get_template('campmanager/user/profile')
     if burner:
         c = RequestContext(request, {
@@ -123,6 +124,7 @@ def profile(request, username):
                 'phone' : burner.mobile,
                 'arrival_date' : burner.arrival_date,
                 'email' : burner.user.email,
+		'groups' : groups,
         })
     else:
         c = RequestContext(request, { 
