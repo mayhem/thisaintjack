@@ -113,7 +113,12 @@ def profile(request, username):
         if burnerList: 
             burner = burnerList[0]
         else:
-            burner = Burner()
+            burner = None
+    else:
+        c = RequestContext(request, { 
+                'burner' : username,
+                'error' : "No such user, doofus!" });
+        return HttpResponse(t.render(c))
 
     groups = Group.objects.filter(user=u.id)
     t = loader.get_template('campmanager/user/profile')
@@ -127,9 +132,14 @@ def profile(request, username):
 		'groups' : groups,
         })
     else:
-        c = RequestContext(request, { 
-                'burner' : username,
-                'error' : "No such burner, doofus!" });
+        c = RequestContext(request, {
+                'burner' : u.username,
+                'realname' : u.first_name + " " + u.last_name,
+                'phone' : '',
+                'arrival_date' : '',
+                'email' : u.email,
+		'groups' : groups,
+        })
     return HttpResponse(t.render(c))
 
 def help(request):

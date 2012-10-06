@@ -7,7 +7,7 @@ sys.path.append("../..")
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "thisaintjack.settings")
 
-from campmanager.models import Burner, Group
+from campmanager.models import User, Group
 
 def email(me, to, subj, txt):
 
@@ -26,14 +26,18 @@ for code, desc in Group.CAMP_SITE_TYPE_CHOICES:
 
 print "Sending emails:\n"
 
-burners = Burner.objects.all()
-for burner in burners:
-    if not burner.user.email:
-        print "user %s has no email set. skipping." % burner.realname
+users = User.objects.all()
+for user in users:
+    groups = Group.objects.filter(user=user.id)
+    if len(groups) == 0: 
+        print "   user %s has no groups defined. Skipping. " % user.email 
         continue
 
-    groups = Group.objects.filter(user=burner.user.id)
-    msg =  "Hello %s!\n\n" % burner.realname.encode('utf-8')
+    if not user.email:
+        print "   user %s %s has no email set. skipping." % (user.first_name, user.last_name)
+        continue
+
+    msg =  "Hello %s %s!\n\n" % (user.first_name.encode('utf-8'), user.last_name.encode('utf-8'))
     msg += "This email is to remind you that you've signed up to come to the " + \
           "Celebrate Greg party on Oct 13/14.\n\n"
     msg += "You have registered the following group(s):\n\n"
@@ -57,5 +61,5 @@ for burner in burners:
            "She will work with you to get your registration squared away.\n\n"
     msg += "Thanks for signing up -- we're looking forward to seeing you next weekend!\n\n"
 
-    print burner.user.email, burner.realname
-    #email("noreply@celebrategreg.org", burner.user.email, "Your Celebrate Greg! group registrations", msg)
+    print user.email, user.first_name, user.last_name
+    email("noreply@celebrategreg.org", user.email, "Your Celebrate Greg! group registrations", msg)
